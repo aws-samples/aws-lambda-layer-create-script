@@ -2,7 +2,7 @@
 
 if [ "$1" != "" ] || [$# -gt 1]; then
 	echo "Creating layer compatible with python version $1"
-	docker run -v "$PWD":/var/task "lambci/lambda:build-python$1" /bin/sh -c "pip install -r requirements.txt -t python/lib/python$1/site-packages/; exit"
+	docker run -v "$PWD":/var/task "public.ecr.aws/sam/build-python$1:latest" /bin/sh -c "pip install -r requirements.txt -t python/lib/python$1/site-packages/; exit"
 	zip -r layer.zip python > /dev/null
 	rm -r python
 	echo "Done creating layer!"

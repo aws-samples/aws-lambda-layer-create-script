@@ -1,1 +1,5 @@
-faropt
+yfinance==0.1.70
+pandas==1.4.2
+pandas-datareader==0.10.0
+pyti==0.2.2
+
